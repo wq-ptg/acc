@@ -2,7 +2,7 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>Hồ sơ nhân vật · Jet</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
@@ -15,68 +15,69 @@
     --mint:#8fe6c4;
     --gold:#f6cf7a;
     --cream:#fbf7ff;
-    --ink:#2a2040;
-    --ink-soft:#6b5d8a;
   }
   *{box-sizing:border-box;}
-  html,body{margin:0;padding:0;}
+  html,body{margin:0;padding:0;height:100%;overflow:hidden;}
   body{
-    min-height:100vh;
     font-family:'Quicksand',sans-serif;
     background:
-      radial-gradient(circle at 15% 10%, rgba(243,163,198,0.25), transparent 45%),
-      radial-gradient(circle at 85% 85%, rgba(143,230,196,0.18), transparent 50%),
+      radial-gradient(circle at 12% 8%, rgba(243,163,198,0.22), transparent 45%),
+      radial-gradient(circle at 88% 90%, rgba(143,230,196,0.16), transparent 50%),
       linear-gradient(160deg, var(--plum-deep) 0%, var(--plum-mid) 55%, #2f2350 100%);
     color:var(--cream);
     display:flex;
     align-items:center;
     justify-content:center;
-    padding:32px 18px;
+    height:100vh;
+    width:100vw;
+    padding:14px;
   }
 
   .card{
     position:relative;
     width:100%;
-    max-width:920px;
+    max-width:960px;
+    height:100%;
+    max-height:560px;
     background:linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
     border:1px solid rgba(255,255,255,0.12);
-    border-radius:28px;
-    padding:36px 36px 30px;
-    backdrop-filter:blur(6px);
-    box-shadow:0 30px 60px rgba(10,5,25,0.45);
+    border-radius:22px;
+    padding:18px 22px 14px;
+    box-shadow:0 24px 50px rgba(10,5,25,0.45);
+    display:flex;
+    flex-direction:column;
     overflow:hidden;
   }
   .card::before{
     content:"";
     position:absolute;
-    top:-120px; right:-120px;
-    width:280px; height:280px;
-    background:radial-gradient(circle, rgba(185,168,234,0.35), transparent 70%);
+    top:-100px; right:-100px;
+    width:220px; height:220px;
+    background:radial-gradient(circle, rgba(185,168,234,0.3), transparent 70%);
     pointer-events:none;
   }
 
   .eyebrow{
     font-family:'Baloo 2',sans-serif;
-    font-size:13px;
-    letter-spacing:3px;
+    font-size:11px;
+    letter-spacing:2.5px;
     text-transform:uppercase;
     color:var(--lavender);
     display:flex;
     align-items:center;
-    gap:10px;
-    margin-bottom:6px;
+    gap:8px;
   }
   .eyebrow::before{
     content:"";
-    width:8px;height:8px;border-radius:50%;
+    width:6px;height:6px;border-radius:50%;
     background:var(--pink);
-    box-shadow:0 0 10px var(--pink);
+    box-shadow:0 0 8px var(--pink);
   }
 
   h1{
     font-family:'Baloo 2',sans-serif;
-    font-size:clamp(26px,4vw,34px);
-    margin:0 0 26px;
+    font-size:clamp(18px,2.6vw,24px);
+    margin:2px 0 10px;
     font-weight:700;
     color:var(--cream);
   }
@@ -84,142 +85,137 @@
 
   .layout{
     display:grid;
-    grid-template-columns:1.15fr 0.85fr;
-    gap:28px;
-    align-items:stretch;
+    grid-template-columns:1.2fr 0.8fr;
+    gap:16px;
+    flex:1;
+    min-height:0;
   }
-  @media (max-width:720px){
+  @media (max-width:680px){
     .layout{grid-template-columns:1fr;}
+    .avatar-panel{display:none;}
   }
 
   .panel{
     background:rgba(255,255,255,0.05);
     border:1px solid rgba(255,255,255,0.1);
-    border-radius:20px;
-    padding:24px;
+    border-radius:16px;
+    padding:14px 16px;
+    display:flex;
+    flex-direction:column;
+    min-height:0;
   }
-
-  .info-block{display:flex;flex-direction:column;gap:20px;}
 
   .row{
     display:flex;
     align-items:center;
-    gap:14px;
+    gap:10px;
+    padding:6px 0;
   }
   .row .icon{
     flex:0 0 auto;
-    width:40px;height:40px;
-    border-radius:12px;
+    width:30px;height:30px;
+    border-radius:9px;
     display:flex;align-items:center;justify-content:center;
-    font-size:18px;
+    font-size:14px;
   }
   .icon.start{background:rgba(143,230,196,0.18); color:var(--mint);}
   .icon.limit{background:rgba(246,207,122,0.18); color:var(--gold);}
   .icon.open{background:rgba(243,163,198,0.18); color:var(--pink);}
 
   .row .label{
-    font-size:12px;
-    letter-spacing:1.5px;
+    font-size:10px;
+    letter-spacing:1.2px;
     text-transform:uppercase;
-    color:var(--ink-soft);
     color:#b8a9d9;
-    margin-bottom:2px;
+    margin-bottom:1px;
   }
   .row .value{
     font-family:'Baloo 2',sans-serif;
-    font-size:16px;
+    font-size:13.5px;
     font-weight:600;
     color:var(--cream);
+    line-height:1.2;
   }
 
   .divider{
     height:1px;
-    background:linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
-    margin:2px 0;
+    background:linear-gradient(90deg, transparent, rgba(255,255,255,0.16), transparent);
+    margin:6px 0;
   }
 
   .countdown-title{
     font-family:'Baloo 2',sans-serif;
-    font-size:13px;
-    letter-spacing:2px;
+    font-size:11px;
+    letter-spacing:1.5px;
     text-transform:uppercase;
     color:#b8a9d9;
-    margin-bottom:14px;
+    margin-bottom:8px;
   }
 
   .ring-wrap{
     display:flex;
     align-items:center;
-    gap:22px;
-    flex-wrap:wrap;
+    gap:14px;
+    flex:1;
+    min-height:0;
   }
 
   .ring{
     position:relative;
-    width:132px;height:132px;
+    width:96px;height:96px;
     flex:0 0 auto;
   }
   .ring svg{transform:rotate(-90deg);}
-  .ring-bg{fill:none;stroke:rgba(255,255,255,0.1);stroke-width:10;}
-  .ring-fg{fill:none;stroke:url(#ringGradient);stroke-width:10;stroke-linecap:round;transition:stroke-dashoffset 1s linear;}
+  .ring-bg{fill:none;stroke:rgba(255,255,255,0.1);stroke-width:8;}
+  .ring-fg{fill:none;stroke:url(#ringGradient);stroke-width:8;stroke-linecap:round;transition:stroke-dashoffset 1s linear;}
   .ring-label{
     position:absolute;inset:0;
     display:flex;flex-direction:column;align-items:center;justify-content:center;
   }
-  .ring-label .pct{font-family:'Baloo 2',sans-serif;font-size:22px;font-weight:700;color:var(--cream);}
-  .ring-label .pct-tag{font-size:10px;letter-spacing:1px;color:#b8a9d9;text-transform:uppercase;margin-top:2px;}
+  .ring-label .pct{font-family:'Baloo 2',sans-serif;font-size:17px;font-weight:700;color:var(--cream);}
+  .ring-label .pct-tag{font-size:8px;letter-spacing:1px;color:#b8a9d9;text-transform:uppercase;margin-top:1px;}
 
   .timer-grid{
     display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:10px;
-    flex:1;
-    min-width:220px;
-  }
-  .timer-grid-6{
     grid-template-columns:repeat(3,1fr);
-    min-width:260px;
-  }
-  @media (min-width:520px){
-    .timer-grid-6{grid-template-columns:repeat(6,1fr);}
+    gap:6px;
+    flex:1;
   }
   .time-cell{
     background:rgba(0,0,0,0.18);
     border:1px solid rgba(255,255,255,0.08);
-    border-radius:14px;
-    padding:10px 4px;
+    border-radius:10px;
+    padding:6px 3px;
     text-align:center;
   }
   .time-cell .num{
     font-family:'Baloo 2',sans-serif;
-    font-size:22px;
+    font-size:16px;
     font-weight:700;
     color:var(--mint);
     line-height:1;
   }
-  .timer-grid-6 .time-cell{padding:9px 3px;}
-  .timer-grid-6 .time-cell .num{font-size:19px;}
   .time-cell .unit{
-    font-size:10px;
-    letter-spacing:1px;
+    font-size:8.5px;
+    letter-spacing:0.8px;
     text-transform:uppercase;
     color:#b8a9d9;
-    margin-top:6px;
+    margin-top:3px;
     display:block;
   }
 
   .status-line{
-    margin-top:16px;
-    font-size:13px;
+    margin-top:8px;
+    font-size:11px;
     color:#d8cef0;
     display:flex;
     align-items:center;
-    gap:8px;
+    gap:6px;
   }
   .status-dot{
-    width:8px;height:8px;border-radius:50%;
+    width:7px;height:7px;border-radius:50%;
     background:var(--mint);
-    box-shadow:0 0 8px var(--mint);
+    box-shadow:0 0 7px var(--mint);
     flex:0 0 auto;
   }
 
@@ -230,7 +226,6 @@
     align-items:center;
     justify-content:space-between;
     background:linear-gradient(180deg, rgba(243,163,198,0.10), rgba(143,230,196,0.06));
-    position:relative;
   }
   .avatar-frame{
     width:100%;
@@ -238,22 +233,23 @@
     display:flex;
     align-items:center;
     justify-content:center;
-    padding:6px 0 14px;
+    min-height:0;
+    padding:4px 0;
   }
   .avatar-frame img{
     max-width:100%;
-    max-height:230px;
+    max-height:100%;
     object-fit:contain;
-    filter:drop-shadow(0 14px 24px rgba(0,0,0,0.4));
+    filter:drop-shadow(0 10px 18px rgba(0,0,0,0.4));
   }
   .avatar-name{
     font-family:'Baloo 2',sans-serif;
     font-weight:700;
-    font-size:18px;
+    font-size:14px;
     color:var(--cream);
     display:flex;
     align-items:center;
-    gap:6px;
+    gap:5px;
   }
   .avatar-name .crown{color:var(--gold);}
   .avatar-level{
@@ -261,15 +257,14 @@
     color:var(--plum-deep);
     font-family:'Baloo 2',sans-serif;
     font-weight:700;
-    font-size:12px;
-    padding:3px 10px;
+    font-size:10px;
+    padding:2px 8px;
     border-radius:999px;
-    margin-left:4px;
+    margin-left:2px;
   }
   .avatar-stats{
     display:flex;
-    gap:12px;
-    margin-top:10px;
+    gap:6px;
     flex-wrap:wrap;
     justify-content:center;
   }
@@ -277,19 +272,10 @@
     background:rgba(0,0,0,0.2);
     border:1px solid rgba(255,255,255,0.08);
     border-radius:999px;
-    padding:5px 12px;
-    font-size:12px;
+    padding:3px 9px;
+    font-size:10px;
     color:#e9e1fb;
-    display:flex;
-    align-items:center;
-    gap:5px;
-  }
-
-  footer.note{
-    margin-top:22px;
-    font-size:11.5px;
-    color:#8779ab;
-    text-align:center;
+    white-space:nowrap;
   }
 </style>
 </head>
@@ -328,11 +314,11 @@
 
       <div class="divider"></div>
 
-      <div class="countdown-title">Thời gian còn lại (thời gian thực)</div>
+      <div class="countdown-title">Còn lại (thời gian thực)</div>
 
       <div class="ring-wrap">
         <div class="ring">
-          <svg viewBox="0 0 132 132" width="132" height="132">
+          <svg viewBox="0 0 132 132" width="96" height="96">
             <defs>
               <linearGradient id="ringGradient" x1="0%" y1="0%" x2="100%" y2="100%">
                 <stop offset="0%" stop-color="#f3a3c6"/>
@@ -349,7 +335,7 @@
           </div>
         </div>
 
-        <div class="timer-grid timer-grid-6">
+        <div class="timer-grid">
           <div class="time-cell"><div class="num" id="yy">--</div><span class="unit">Năm</span></div>
           <div class="time-cell"><div class="num" id="mo">--</div><span class="unit">Tháng</span></div>
           <div class="time-cell"><div class="num" id="dd">--</div><span class="unit">Ngày</span></div>
@@ -381,17 +367,13 @@
       </div>
     </div>
   </div>
-
-  <footer class="note">Đồng hồ đếm ngược cập nhật theo thời gian thực trên thiết bị của bạn.</footer>
 </div>
 
 <script>
-  // Start date and duration
-  const startDate = new Date(2026, 4, 12, 5, 36, 17); // month is 0-indexed: 4 = May
+  const startDate = new Date(2026, 4, 12, 5, 36, 17);
   const durationMs = (945 * 24 * 60 * 60 * 1000) + (15 * 60 * 60 * 1000);
   const endDate = new Date(startDate.getTime() + durationMs);
 
-  // Display the computed "account opens on" date/time
   function formatVN(dt){
     const dd = dt.getDate().toString().padStart(2,'0');
     const mm = (dt.getMonth()+1).toString().padStart(2,'0');
@@ -403,7 +385,7 @@
   }
   document.getElementById('endDisplay').textContent = formatVN(endDate);
 
-  const totalCircle = 2 * Math.PI * 56; // r=56
+  const totalCircle = 2 * Math.PI * 56;
 
   function pad(n){ return n.toString().padStart(2,'0'); }
 
@@ -417,15 +399,14 @@
     if(diff <= 0){
       diff = 0;
       statusDot.style.background = '#f36a6a';
-      statusDot.style.boxShadow = '0 0 8px #f36a6a';
+      statusDot.style.boxShadow = '0 0 7px #f36a6a';
       statusText.textContent = 'Đã hết hạn';
     } else {
       statusDot.style.background = '#8fe6c4';
-      statusDot.style.boxShadow = '0 0 8px #8fe6c4';
+      statusDot.style.boxShadow = '0 0 7px #8fe6c4';
       statusText.textContent = 'Đang hoạt động — mở đến hết hạn';
     }
 
-    // Calendar-accurate breakdown: years, months, days, hours, minutes, seconds
     let y = 0, mo = 0, d = 0, h = 0, mi = 0, s = 0;
     if (diff > 0) {
       let cursor = new Date(now.getTime());
